@@ -1,0 +1,15 @@
+{
+  "name": "deliverr_backend_intern_assesment",
+  "version": "1.0.0",
+  "description": "This is a JS tool built for the backend intern code assesment for Deliverr. The challenge is to calculate the most efficient way to ship an order based on a given inventory from a group of warehouses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha "
+  },
+  "author": "John Hill",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.2"
+  }
+}
