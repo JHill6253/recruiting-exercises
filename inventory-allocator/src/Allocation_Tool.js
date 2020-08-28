@@ -1,5 +1,5 @@
 /**
- * Library/Tools: Javascript, Mocha, Chai, Node.JS
+ * Library/Tools: Javascript, Node.JS
  * Author: John Hill 
  * Created: August 26th, 2020
  * 
@@ -36,11 +36,11 @@ class AllocationTool{
             count++
         }
         //if used to quickly catch null arrays thus returning a fail 
-        if(count === 0 || warehouse.length===0 ){
+        if(Object.keys(merchandise).length === 0 || warehouse.length===0 ){
             return outcome
         }
         //iteration chosen merchandise of count  
-        for(let chosenMerchandise of count){
+        for(let chosenMerchandise of Object.keys(merchandise)){
             
             //stores where index is stored
             let indexLocation = 0;
@@ -56,7 +56,7 @@ class AllocationTool{
                 //let to get the name of warehouses at indexLocation
                 let{name: warehouseName } = warehouse[indexLocation];
                 //let used to find merchandise found
-                let{warehouseInventory:{[chosenMerchandise]:merchandiseAvailable}}
+                let{warehouseInventory:{[chosenMerchandise]:merchandiseAvailable}} = warehouse[indexLocation] //TODO: find undefined bug
             
                 //These ifs are used to check for undefined values and making sure there is enough quantity for the request
                 if(merchandiseAvailable!== undefined && merchandiseAvailable> 0){
@@ -80,12 +80,12 @@ class AllocationTool{
                 }
                 indexLocation++ //updating indexLocation
             }
-            let countTwo =0;
-            for(var j in merchandise){
-                countTwo++
-            }
+            // let countTwo =0;
+            // for(var j in merchandise){
+            //     countTwo++
+            // }
             //this condition checks to make sure we found an acceptable amount of merchandise required before we update the outcome 
-            if(countTwo > 0 && merchandiseRequired === 0){
+            if(Object.keys(merchandiseFound).length > 0 && merchandiseRequired === 0){
                 outcome.push(merchandiseFound) //updates outcome array
             }
         }
@@ -95,4 +95,4 @@ class AllocationTool{
     }
 
 
- };
+ }; module.exports.AllocationTool = AllocationTool

@@ -4,7 +4,7 @@
   "description": "This is a JS tool built for the backend intern code assesment for Deliverr. The challenge is to calculate the most efficient way to ship an order based on a given inventory from a group of warehouses.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha "
+    "test": "mocha ./test/inventory.test.js "
   },
   "author": "John Hill",
   "license": "ISC",
